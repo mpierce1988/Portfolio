@@ -65,6 +65,23 @@ public readonly struct Result<TValue, TError>
         Func<TError, TResult> failure
     ) => !IsError ? success(_value!) : failure(_error!);
 
+    /// <summary>
+    /// Executes one of two actions based on whether the result is a success or an error.
+    /// </summary>
+    /// <param name="success">The action to invoke if the result is a success.</param>
+    /// <param name="failure">The action to invoke if the result is an error.</param>
+    /// <returns>Nothing - this method returns void.</returns>
+    public void Match(
+        Action<TValue> success,
+        Action<TError> failure
+    )
+    {
+        if (IsError)
+            failure(_error!);
+        else
+            success(_value!);
+    }
+    
     #endregion
     
     #region Private Methods

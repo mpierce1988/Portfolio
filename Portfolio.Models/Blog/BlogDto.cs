@@ -7,6 +7,8 @@ public record BlogDto
     public string Title { get; set; } = String.Empty;
     public string ImageUrl { get; set; } = String.Empty;
     public List<Tag.Tag> Tags { get; set; } = new List<Tag.Tag>();
+    
+    public DateTime CreatedDate { get; set; } = DateTime.MinValue;
 
     public BlogDto()
     {
@@ -19,5 +21,6 @@ public record BlogDto
         Title = blog.Title;
         ImageUrl = blog.ImageUrl;
         Tags = blog.Tags;
+        CreatedDate = blog.CreatedDate;
     }
 }
