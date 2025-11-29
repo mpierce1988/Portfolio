@@ -7,3 +7,4 @@ riderModule.iml
 */node_modules/
 */http-client.env.json
 Portfolio.sln.DotSettings.user
+**/output.css
