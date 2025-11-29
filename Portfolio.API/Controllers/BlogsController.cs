@@ -15,7 +15,7 @@ public class BlogsController : ControllerBase
         _blogService = blogService;
     }
     
-    // GET
+    // GET api/blogs - Get all blogs with optional limit
     [HttpGet]
     public async Task<IActionResult> GetBlogsAsync([FromQuery] int? limit = null)
     {
@@ -23,12 +23,10 @@ public class BlogsController : ControllerBase
         {
             var blogsResult = await _blogService.GetBlogsAsync(limit);
             
-            IActionResult returnResult = blogsResult.Match<IActionResult>(
+            return blogsResult.Match<IActionResult>(
                 blogs =>  Ok(blogs),
                 error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)
             );
-
-            return returnResult;
         }
         catch (Exception e)
         {
@@ -44,12 +42,10 @@ public class BlogsController : ControllerBase
         {
             var blogResult = await _blogService.GetBlogByIdAsync(id);
 
-            IActionResult result = blogResult.Match<IActionResult>(
+            return blogResult.Match<IActionResult>(
                 Ok,
                 error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)    
             );
-
-            return result;
         }
         catch (Exception e)
         {
@@ -65,12 +61,10 @@ public class BlogsController : ControllerBase
         {
             var blogResult = await _blogService.GetBlogByAliasAsync(alias);
 
-            IActionResult result = blogResult.Match<IActionResult>(
+            return blogResult.Match<IActionResult>(
                 Ok,
                 error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)    
             );
-
-            return result;
         }
         catch (Exception e)
         {
