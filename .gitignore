@@ -5,3 +5,5 @@ riderModule.iml
 /_ReSharper.Caches/
 .idea/
 */node_modules/
+*/http-client.env.json
+Portfolio.sln.DotSettings.user
