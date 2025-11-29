@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Web", "Portfolio.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.API", "Portfolio.API\Portfolio.API.csproj", "{3A18EF3D-BF24-45F1-A405-CF22223A5457}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Models", "Portfolio.Models\Portfolio.Models.csproj", "{EC1B026D-48B9-477B-9AC2-700EB6EBA458}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{3A18EF3D-BF24-45F1-A405-CF22223A5457}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A18EF3D-BF24-45F1-A405-CF22223A5457}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A18EF3D-BF24-45F1-A405-CF22223A5457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC1B026D-48B9-477B-9AC2-700EB6EBA458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC1B026D-48B9-477B-9AC2-700EB6EBA458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC1B026D-48B9-477B-9AC2-700EB6EBA458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC1B026D-48B9-477B-9AC2-700EB6EBA458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
