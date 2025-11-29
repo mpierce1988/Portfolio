@@ -1,27 +1,27 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Portfolio.Web</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
+﻿<div class="bg-gray-900 px-3 py-4">
+    <div class="flex items-center justify-between">
+        <a class="text-xl font-bold" href="">Portfolio.Web</a>
+        <button title="Navigation menu" class="md:hidden text-white" @onclick="ToggleNavMenu">
+            <span class="text-2xl">☰</span>
         </button>
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+<div class="@NavMenuCssClass overflow-y-auto">
+    <nav class="flex flex-col space-y-1 p-3">
+        <div class="nav-item">
+            <NavLink class="flex items-center px-3 py-2 rounded hover:bg-gray-700 transition-colors" href="" Match="NavLinkMatch.All">
+                <span class="mr-2" aria-hidden="true">🏠</span> Home
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+        <div class="nav-item">
+            <NavLink class="flex items-center px-3 py-2 rounded hover:bg-gray-700 transition-colors" href="counter">
+                <span class="mr-2" aria-hidden="true">➕</span> Counter
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+        <div class="nav-item">
+            <NavLink class="flex items-center px-3 py-2 rounded hover:bg-gray-700 transition-colors" href="weather">
+                <span class="mr-2" aria-hidden="true">📋</span> Weather
             </NavLink>
         </div>
     </nav>
@@ -30,11 +30,10 @@
 @code {
     private bool collapseNavMenu = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => collapseNavMenu ? "hidden md:block" : "block";
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
-
 }
