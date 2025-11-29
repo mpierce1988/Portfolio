@@ -9,4 +9,6 @@ public class Project
     public string ImageUrl { get; set; } = String.Empty;
     public string Link { get; set; } = String.Empty;
     public List<Tag.Tag> Tags { get; set; } = new List<Tag.Tag>();
+    
+    public DateTime CreatedDate { get; set; } = DateTime.MinValue;
 }

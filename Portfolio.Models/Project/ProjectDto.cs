@@ -8,6 +8,8 @@ public record ProjectDto
     public string ImageUrl { get; set; } = String.Empty;
     public string Link { get; set; } = String.Empty;
     public List<Tag.Tag> Tags { get; set; } = new List<Tag.Tag>();
+    
+    public DateTime CreatedDate { get; set; } = DateTime.MinValue;
 
     public ProjectDto()
     {
@@ -21,5 +23,6 @@ public record ProjectDto
         ImageUrl = project.ImageUrl;
         Link = project.Link;
         Tags = project.Tags;
+        CreatedDate = project.CreatedDate;
     }
 }
