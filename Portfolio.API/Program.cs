@@ -1,3 +1,5 @@
+using Portfolio.Services.Blog;
+
 namespace Portfolio.API;
 
 public class Program
@@ -11,6 +13,9 @@ public class Program
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
+        
+        // Register Services
+        builder.Services.AddScoped<IBlogService, MockBlogService>();
 
         var app = builder.Build();
 

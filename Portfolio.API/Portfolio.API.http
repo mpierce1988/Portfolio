@@ -1,6 +1,16 @@
 @Portfolio.API_HostAddress = http://localhost:5267
 
-GET {{Portfolio.API_HostAddress}}/weatherforecast/
+GET {{API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{API_HostAddress}}/api/Blog/
+Accept: application/json
+
+###
+
+GET {{API_HostAddress}}/api/Blog?limit=1
 Accept: application/json
 
 ###
