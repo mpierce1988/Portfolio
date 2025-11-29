@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Models.Blog;
 using Portfolio.Services.Blog;
 
 namespace Portfolio.API.Controllers;
@@ -24,14 +25,56 @@ public class BlogsController : ControllerBase
             
             IActionResult returnResult = blogsResult.Match<IActionResult>(
                 blogs =>  Ok(blogs),
-                error => StatusCode(500, error.Message)
+                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)
             );
 
             return returnResult;
         }
         catch (Exception e)
         {
-            return StatusCode(500, e.Message);
+            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+        }
+    }
+
+    // GET api/blogs/{id} - Get blog by ID (GUID/string)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetBlogByIdAsync(string id)
+    {
+        try
+        {
+            var blogResult = await _blogService.GetBlogByIdAsync(id);
+
+            IActionResult result = blogResult.Match<IActionResult>(
+                Ok,
+                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)    
+            );
+
+            return result;
+        }
+        catch (Exception e)
+        {
+            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+        }
+    }
+    
+    // GET api/blogs/alias/{alias} - Get blog by alias (string)
+    [HttpGet("alias/{alias}")]
+    public async Task<IActionResult> GetBlogByAliasAsync(string alias)
+    {
+        try
+        {
+            var blogResult = await _blogService.GetBlogByAliasAsync(alias);
+
+            IActionResult result = blogResult.Match<IActionResult>(
+                Ok,
+                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)    
+            );
+
+            return result;
+        }
+        catch (Exception e)
+        {
+            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
         }
     }
 }
