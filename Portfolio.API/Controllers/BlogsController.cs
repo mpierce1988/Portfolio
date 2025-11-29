@@ -5,11 +5,11 @@ namespace Portfolio.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BlogController : ControllerBase
+public class BlogsController : ControllerBase
 {
     private readonly IBlogService _blogService;
 
-    public BlogController(IBlogService blogService)
+    public BlogsController(IBlogService blogService)
     {
         _blogService = blogService;
     }
