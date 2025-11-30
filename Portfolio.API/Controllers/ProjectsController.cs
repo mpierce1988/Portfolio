@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.API.Utilities;
 using Portfolio.Services.Project;
 
 namespace Portfolio.API.Controllers;
@@ -23,12 +24,12 @@ public class ProjectsController : ControllerBase
             
             return projectsResult.Match<IActionResult>(
                 projects =>  Ok(projects),
-                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)
+                error => throw error
             );
         }
         catch (Exception e)
         {
-            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+            return ProblemUtility.GetProblem(e);
         }
     }
     
@@ -41,12 +42,12 @@ public class ProjectsController : ControllerBase
 
             return projectResult.Match<IActionResult>(
                 Ok,
-                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)
+                error => throw error
             );
         }
         catch (Exception e)
         {
-            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+            return ProblemUtility.GetProblem(e);
         }
     }
     
@@ -59,12 +60,12 @@ public class ProjectsController : ControllerBase
 
             return projectResult.Match<IActionResult>(
                 Ok,
-                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)    
+                error => throw error
             );
         }
         catch (Exception e)
         {
-            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+            return ProblemUtility.GetProblem(e);
         }
     }
 }

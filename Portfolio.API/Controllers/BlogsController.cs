@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.API.Utilities;
 using Portfolio.Models.Blog;
 using Portfolio.Services.Blog;
 
@@ -25,12 +26,12 @@ public class BlogsController : ControllerBase
             
             return blogsResult.Match<IActionResult>(
                 blogs =>  Ok(blogs),
-                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)
+                error => throw error
             );
         }
         catch (Exception e)
         {
-            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+            return ProblemUtility.GetProblem(e);
         }
     }
 
@@ -44,12 +45,12 @@ public class BlogsController : ControllerBase
 
             return blogResult.Match<IActionResult>(
                 Ok,
-                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)    
+                error => throw error    
             );
         }
         catch (Exception e)
         {
-            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+            return ProblemUtility.GetProblem(e);
         }
     }
     
@@ -63,12 +64,12 @@ public class BlogsController : ControllerBase
 
             return blogResult.Match<IActionResult>(
                 Ok,
-                error => Problem(detail: error.Message, statusCode: StatusCodes.Status500InternalServerError)    
+                error => throw error    
             );
         }
         catch (Exception e)
         {
-            return Problem(detail: e.Message, statusCode: StatusCodes.Status500InternalServerError);
+            return ProblemUtility.GetProblem(e);
         }
     }
 }
