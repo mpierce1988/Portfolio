@@ -1,4 +1,5 @@
 using Portfolio.Services.Blog;
+using Portfolio.Services.Project;
 
 namespace Portfolio.API;
 
@@ -16,6 +17,7 @@ public class Program
         
         // Register Services
         builder.Services.AddScoped<IBlogService, MockBlogService>();
+        builder.Services.AddScoped<IProjectService, MockProjectService>();
 
         var app = builder.Build();
 

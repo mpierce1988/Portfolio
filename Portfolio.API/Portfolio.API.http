@@ -1,9 +1,9 @@
-@Portfolio.API_HostAddress = http://localhost:5267
+@API_HostAddress = https://localhost:7054
 
 GET {{API_HostAddress}}/weatherforecast/
 Accept: application/json
 
-###
+#### Blogs Endpoints
 
 GET {{API_HostAddress}}/api/Blogs/
 Accept: application/json
@@ -21,6 +21,21 @@ Accept: application/json
 ###
 
 GET {{API_HostAddress}}/api/Blogs/alias/first-blog
+Accept: application/json
+
+#### Projects Endpoints
+
+GET {{API_HostAddress}}/api/Projects/
+Accept: application/json
+
+###
+
+GET {{API_HostAddress}}/api/Projects/1
+Accept: application/json
+
+###
+
+GET {{API_HostAddress}}/api/Projects/alias/project-one
 Accept: application/json
 
 ###
