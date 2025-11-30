@@ -15,11 +15,11 @@ public class ProjectsController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<IActionResult> GetProjectsAsync(int? limit = null)
+    public async Task<IActionResult> GetProjectsAsync(int? limit = null, [FromQuery] int[]? tagIds = null)
     {
         try
         {
-            var projectsResult = await _projectService.GetProjectsAsync(limit);
+            var projectsResult = await _projectService.GetProjectsAsync(limit, tagIds);
             
             return projectsResult.Match<IActionResult>(
                 projects =>  Ok(projects),

@@ -35,6 +35,31 @@ public class ProjectServiceTests
     }
     
     [Fact]
+    public async Task GetProjectsAsync_GetProjectsByTag_ReturnsValidResponse()
+    {
+        // Arrange
+        int expectedCount = 1;
+        int? limit = null;
+        int[] tagIds = new[] {6};
+        
+        // Act
+        var result = await _projectService.GetProjectsAsync(limit, tagIds);
+        
+        // Assert
+        Assert.True(result.IsSuccess);
+        
+        result.Match(
+            projects =>
+            {
+                Assert.NotNull(projects);
+                Assert.Equal(expectedCount, projects.Count);
+                Assert.Equal(tagIds.First(), projects.First().Tags.First().TagId);
+            },
+            error => Assert.False(true, $"Expected success but got error: {error.Message}")
+        );
+    }
+    
+    [Fact]
     public async Task GetProjectsAsync_LimitOne_ReturnsValidResponse()
     {
         // Arrange

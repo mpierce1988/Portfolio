@@ -55,13 +55,18 @@ public class MockProjectService : IProjectService
         }
     };
     
-    public async Task<Result<List<ProjectDto>, Exception>> GetProjectsAsync(int? limit = null)
+    public async Task<Result<List<ProjectDto>, Exception>> GetProjectsAsync(int? limit = null, int[]? tagIds = null)
     {
         try
         {
             IEnumerable<ProjectDto> query = _projects.Select(x => new ProjectDto(x)).OrderByDescending(x => x.CreatedDate);
 
-            if (limit.HasValue && limit.Value > 0)
+            if (tagIds is not null)
+            {
+                query = query.Where(project => project.Tags.Any(tag => tagIds.Contains(tag.TagId)));
+            }
+            
+            if (limit > 0)
             {
                 query = query.Take(limit.Value);
             }
