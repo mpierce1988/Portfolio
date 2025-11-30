@@ -92,7 +92,7 @@ public class BlogServiceTests
         Assert.True(result.IsError);
 
         result.Match(
-            blog => Assert.False(true, "Expected error but got success"),
+            _ => Assert.False(true, "Expected error but got success"),
             error => Assert.IsType<KeyNotFoundException>(error)
             );
     }
@@ -132,7 +132,7 @@ public class BlogServiceTests
         Assert.True(result.IsError);
 
         result.Match(
-            blog => Assert.False(true, "Expected error but got success"),
+            _ => Assert.False(true, "Expected error but got success"),
             error => Assert.IsType<KeyNotFoundException>(error)
         );
     }

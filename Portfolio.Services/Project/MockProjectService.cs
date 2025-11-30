@@ -18,8 +18,8 @@ public class MockProjectService : IProjectService
             Link = "https://example.com/project1",
             Tags = new List<Models.Tag.Tag>
             {
-                new Models.Tag.Tag { TagId = 1, Name = "C#" },
-                new Models.Tag.Tag { TagId = 2, Name = ".NET" }
+                new Models.Tag.Tag { TagId = 4, Name = "C#" },
+                new Models.Tag.Tag { TagId = 5, Name = ".NET" }
             },
             CreatedDate = DateTime.Now.AddDays(-3)
         },
@@ -33,8 +33,8 @@ public class MockProjectService : IProjectService
             Link = "https://example.com/project2",
             Tags = new List<Models.Tag.Tag>
             {
-                new Models.Tag.Tag { TagId = 3, Name = "JavaScript" },
-                new Models.Tag.Tag { TagId = 4, Name = "React" }
+                new Models.Tag.Tag { TagId = 6, Name = "JavaScript" },
+                new Models.Tag.Tag { TagId = 7, Name = "React" }
             },
             CreatedDate = DateTime.Now.AddDays(-2)
         },
@@ -48,8 +48,8 @@ public class MockProjectService : IProjectService
             Link = "https://example.com/project3",
             Tags = new List<Models.Tag.Tag>
             {
-                new Models.Tag.Tag { TagId = 5, Name = "Python" },
-                new Models.Tag.Tag { TagId = 6, Name = "Django" }
+                new Models.Tag.Tag { TagId = 8, Name = "Python" },
+                new Models.Tag.Tag { TagId = 9, Name = "Django" }
             },
             CreatedDate = DateTime.Now.AddDays(-1)
         }

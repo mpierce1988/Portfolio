@@ -1,6 +1,5 @@
 using Portfolio.Models;
 using Portfolio.Models.Blog;
-using Portfolio.Models.Tag;
 using Exception = System.Exception;
 
 namespace Portfolio.Services.Blog;
@@ -16,7 +15,7 @@ public class MockBlogService : IBlogService
             Title = "My First Blog",
             Content = "This is the content of my first blog.",
             ImageUrl = "https://example.com/image1.jpg",
-            Tags = new List<Tag> { new Tag { TagId = 1, Name = "Introduction" } },
+            Tags = new List<Models.Tag.Tag> { new Models.Tag.Tag { TagId = 1, Name = "Introduction" } },
             CreatedDate = DateTime.Now.AddDays(-3)
         },
         new Models.Blog.Blog()
@@ -26,7 +25,7 @@ public class MockBlogService : IBlogService
             Title = "My Second Blog",
             Content = "This is the content of my second blog.",
             ImageUrl = "https://example.com/image2.jpg",
-            Tags = new List<Tag> { new Tag { TagId = 2, Name = "Tech" } },
+            Tags = new List<Models.Tag.Tag> { new Models.Tag.Tag { TagId = 2, Name = "Tech" } },
             CreatedDate = DateTime.Now.AddDays(-2)
         },
         new Models.Blog.Blog()
@@ -36,7 +35,7 @@ public class MockBlogService : IBlogService
             Title = "My Third Blog",
             Content = "This is the content of my third blog.",
             ImageUrl = "https://example.com/image3.jpg",
-            Tags = new List<Tag> { new Tag { TagId = 3, Name = "Life" } },
+            Tags = new List<Models.Tag.Tag> { new Models.Tag.Tag { TagId = 3, Name = "Life" } },
             CreatedDate = DateTime.Now.AddDays(-1)
         }
     ];

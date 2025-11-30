@@ -93,7 +93,7 @@ public class ProjectServiceTests
         Assert.False(result.IsSuccess);
         
         result.Match(
-            project => Assert.False(true, "Expected failure but got success."),
+            _ => Assert.False(true, "Expected failure but got success."),
             error => Assert.IsType<KeyNotFoundException>(error)
         );
     }
@@ -133,7 +133,7 @@ public class ProjectServiceTests
         // Assert
         Assert.False(result.IsSuccess);
         result.Match(
-            project => Assert.False(true, "Expected failure but got success."),
+            _ => Assert.False(true, "Expected failure but got success."),
             error => Assert.IsType<KeyNotFoundException>(error)
         );
     }
