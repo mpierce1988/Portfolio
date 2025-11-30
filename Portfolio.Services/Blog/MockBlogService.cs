@@ -40,12 +40,17 @@ public class MockBlogService : IBlogService
         }
     ];
     
-    public async Task<Result<List<BlogDto>, Exception>> GetBlogsAsync(int? limit = null)
+    public async Task<Result<List<BlogDto>, Exception>> GetBlogsAsync(int? limit = null, int[]? tagIds = null)
     {
         try
         {
             IEnumerable<BlogDto> query = _blogs.Select(x => new BlogDto(x)).OrderByDescending(x => x.CreatedDate);
 
+            if (tagIds is not null)
+            {
+                query = query.Where(blog => blog.Tags.Any(tag => tagIds.Contains(tag.TagId)));
+            }
+            
             if (limit is > 0)
             {
                 query = query.Take(limit.Value);

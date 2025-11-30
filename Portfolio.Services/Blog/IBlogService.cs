@@ -12,11 +12,12 @@ public interface IBlogService
     /// Retrieves a list of blogs, optionally limited by a specified number.
     /// </summary>
     /// <param name="limit">The maximum number of blogs to retrieve. If null, no limit is applied.</param>
+    /// <param name="tagIds">An optional array of tag IDs to filter the blogs by associated tags.</param>
     /// <returns>
     /// A task that represents the asynchronous operation. The task result contains a 
     /// <see cref="Result{TValue, TError}"/> with a list of <see cref="BlogDto"/> on success, or an <see cref="Exception"/> on failure.
     /// </returns>
-    public Task<Result<List<BlogDto>, Exception>> GetBlogsAsync(int? limit = null);
+    public Task<Result<List<BlogDto>, Exception>> GetBlogsAsync(int? limit = null, int[]? tagIds = null);
 
     /// <summary>
     /// Retrieves a blog by its unique identifier.

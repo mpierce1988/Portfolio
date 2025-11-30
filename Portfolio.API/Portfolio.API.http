@@ -15,6 +15,11 @@ Accept: application/json
 
 ###
 
+GET {{API_HostAddress}}/api/Blogs?tagIds=1&tagIds=2
+Accept: application/json
+
+###
+
 GET {{API_HostAddress}}/api/Blogs/1
 Accept: application/json
 

@@ -17,11 +17,11 @@ public class BlogsController : ControllerBase
     
     // GET api/blogs - Get all blogs with optional limit
     [HttpGet]
-    public async Task<IActionResult> GetBlogsAsync([FromQuery] int? limit = null)
+    public async Task<IActionResult> GetBlogsAsync([FromQuery] int? limit = null, [FromQuery] int[]? tagIds = null)
     {
         try
         {
-            var blogsResult = await _blogService.GetBlogsAsync(limit);
+            var blogsResult = await _blogService.GetBlogsAsync(limit, tagIds);
             
             return blogsResult.Match<IActionResult>(
                 blogs =>  Ok(blogs),

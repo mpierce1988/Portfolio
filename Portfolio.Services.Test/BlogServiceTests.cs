@@ -35,6 +35,31 @@ public class BlogServiceTests
     }
     
     [Fact]
+    public async Task GetBlogsAsync_GetBlogsByTag_ReturnsValidResponse()
+    {
+        // Arrange
+        int expectedCount = 1;
+        int? limit = null;
+        int[] tagIds = new[] {2};
+        
+        // Act
+        var result = await _blogService.GetBlogsAsync(limit, tagIds);
+        
+        // Assert
+        Assert.True(result.IsSuccess);
+        
+        result.Match(
+            blogs =>
+            {
+                Assert.NotNull(blogs);
+                Assert.Equal(expectedCount, blogs.Count);
+                Assert.Equal(tagIds.First(), blogs.First().Tags.First().TagId);
+            },
+            error => Assert.False(true, $"Expected success but got error: {error.Message}")
+        );
+    }
+    
+    [Fact]
     public async Task GetBlogsAsync_LimitOne_ReturnsValidResponse()
     {
         // Arrange
