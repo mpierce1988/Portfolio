@@ -35,12 +35,32 @@ Accept: application/json
 
 ###
 
+GET {{API_HostAddress}}/api/Projects?limit=1
+Accept: application/json
+
+###
+
+GET {{API_HostAddress}}/api/Projects?tagIds=6&tagIds=8
+Accept: application/json
+
+###
+
 GET {{API_HostAddress}}/api/Projects/1
 Accept: application/json
 
 ###
 
 GET {{API_HostAddress}}/api/Projects/alias/project-one
+Accept: application/json
+
+#### Tags Endpoints
+
+GET {{API_HostAddress}}/api/Tags
+Accept: application/json
+
+###
+
+GET {{API_HostAddress}}/api/Tags/199
 Accept: application/json
 
 ###
