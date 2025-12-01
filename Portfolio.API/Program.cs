@@ -1,5 +1,6 @@
 using Portfolio.Services.Blog;
 using Portfolio.Services.Project;
+using Portfolio.Services.Resume;
 using Portfolio.Services.Tag;
 
 namespace Portfolio.API;
@@ -20,6 +21,7 @@ public class Program
         builder.Services.AddScoped<IBlogService, MockBlogService>();
         builder.Services.AddScoped<IProjectService, MockProjectService>();
         builder.Services.AddScoped<ITagService, MockTagService>();
+        builder.Services.AddScoped<IResumeService, MockResumeService>();
 
         var app = builder.Build();
 

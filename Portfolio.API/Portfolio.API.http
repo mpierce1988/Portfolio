@@ -63,4 +63,9 @@ Accept: application/json
 GET {{API_HostAddress}}/api/Tags/199
 Accept: application/json
 
+#### Resume
+
+GET {{API_HostAddress}}/api/Resume
+Accept: application/json
+
 ###
