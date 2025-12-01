@@ -6,3 +6,16 @@
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Hello, world!</h1>
     <p class="text-lg text-gray-700">Welcome to your new app.</p>
 </div>
+
+@if (_isLoading)
+{
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Loading blog count...</h1>
+    </div>
+}
+else
+{
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Blog Count: @_blogCount</h1>
+    </div>
+}
