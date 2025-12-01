@@ -22,6 +22,32 @@ public class Program
         builder.Services.AddScoped<IProjectService, MockProjectService>();
         builder.Services.AddScoped<ITagService, MockTagService>();
         builder.Services.AddScoped<IResumeService, MockResumeService>();
+        
+        // CORS
+        // Add CORS policy
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("BlazorWasmPolicy", policy =>
+            {
+                if (builder.Environment.IsDevelopment())
+                {
+                    // Allow any origin in development
+                    policy.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                }
+                else
+                {
+                    // Allow specific origins in production
+                    var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() 
+                                         ?? Array.Empty<string>();
+            
+                    policy.WithOrigins(allowedOrigins)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                }
+            });
+        });
 
         var app = builder.Build();
 
@@ -30,6 +56,9 @@ public class Program
         {
             app.MapOpenApi();
         }
+        
+        // Enable CORS - must be before UseAuthorization
+        app.UseCors("BlazorWasmPolicy");
 
         app.UseHttpsRedirection();
 
