@@ -1,5 +1,6 @@
 using Portfolio.Models;
 using Portfolio.Models.Blog;
+using Portfolio.Models.Exceptions;
 using Exception = System.Exception;
 
 namespace Portfolio.Services.Blog;
@@ -63,7 +64,7 @@ public class MockBlogService : IBlogService
         }
         catch (Exception e)
         {
-            return await Task.FromResult(e);
+            return e;
         }
     }
 
@@ -76,7 +77,7 @@ public class MockBlogService : IBlogService
             
             if (selectedBlog == null)
             {
-                throw new KeyNotFoundException("Blog not found");
+                throw new NotFoundException("Blog not found");
             }
             
             return await Task.FromResult(
@@ -85,7 +86,7 @@ public class MockBlogService : IBlogService
         }
         catch (Exception e)
         {
-            return await Task.FromResult(e);
+            return e;
         }
     }
 
@@ -98,7 +99,7 @@ public class MockBlogService : IBlogService
             
             if (selectedBlog == null)
             {
-                throw new KeyNotFoundException("Blog not found");
+                throw new NotFoundException("Blog not found");
             }
             
             return await Task.FromResult(
@@ -107,7 +108,7 @@ public class MockBlogService : IBlogService
         }
         catch (Exception e)
         {
-            return await Task.FromResult(e);
+            return e;
         }
     }
 }

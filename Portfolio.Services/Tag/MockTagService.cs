@@ -1,4 +1,5 @@
 using Portfolio.Models;
+using Portfolio.Models.Exceptions;
 using Exception = System.Exception;
 
 namespace Portfolio.Services.Tag;
@@ -40,7 +41,7 @@ public class MockTagService : ITagService
 
             if (tag is null)
             {
-                throw new KeyNotFoundException("Tag not found");
+                throw new NotFoundException("Tag not found");
             }
 
             return await Task.FromResult(tag);

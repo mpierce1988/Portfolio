@@ -1,4 +1,5 @@
 using Portfolio.Models;
+using Portfolio.Models.Exceptions;
 using Portfolio.Models.Project;
 using Exception = System.Exception;
 
@@ -89,7 +90,7 @@ public class MockProjectService : IProjectService
             
             if (project == null)
             {
-                throw new KeyNotFoundException("Project not found");
+                throw new NotFoundException("Project not found");
             }
             
             return await Task.FromResult(project);
@@ -109,7 +110,7 @@ public class MockProjectService : IProjectService
             
             if (project == null)
             {
-                throw new KeyNotFoundException("Project not found");
+                throw new NotFoundException("Project not found");
             }
             
             return await Task.FromResult(project);
