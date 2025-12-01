@@ -59,6 +59,7 @@ public class MockProjectService : IProjectService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             IEnumerable<ProjectDto> query = _projects.Select(x => new ProjectDto(x)).OrderByDescending(x => x.CreatedDate);
 
             if (tagIds is not null)
@@ -83,6 +84,7 @@ public class MockProjectService : IProjectService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             Models.Project.Project? project = _projects.FirstOrDefault(x => x.ProjectId == id);
             
             if (project == null)
@@ -102,6 +104,7 @@ public class MockProjectService : IProjectService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             Models.Project.Project? project = _projects.FirstOrDefault(x => x.Alias == alias);
             
             if (project == null)

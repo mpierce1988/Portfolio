@@ -22,6 +22,7 @@ public class MockTagService : ITagService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             return await Task.FromResult(_tags);
         }
         catch (Exception e)
@@ -34,6 +35,7 @@ public class MockTagService : ITagService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             Models.Tag.Tag? tag = _tags.FirstOrDefault(t => t.TagId == tagId);
 
             if (tag is null)

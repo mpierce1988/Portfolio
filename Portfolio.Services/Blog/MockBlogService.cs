@@ -44,6 +44,7 @@ public class MockBlogService : IBlogService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             IEnumerable<BlogDto> query = _blogs.Select(x => new BlogDto(x)).OrderByDescending(x => x.CreatedDate);
 
             if (tagIds is not null)
@@ -70,6 +71,7 @@ public class MockBlogService : IBlogService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             Models.Blog.Blog? selectedBlog = _blogs.FirstOrDefault(x => x.BlogId == blogId);
             
             if (selectedBlog == null)
@@ -91,6 +93,7 @@ public class MockBlogService : IBlogService
     {
         try
         {
+            await Task.Delay(50); // Simulate async operation
             Models.Blog.Blog? selectedBlog = _blogs.FirstOrDefault(x => x.Alias == alias);
             
             if (selectedBlog == null)
