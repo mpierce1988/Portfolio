@@ -1,15 +1,18 @@
 ﻿@using Microsoft.AspNetCore.Components.Routing
 
-<nav class="bg-gray-800 text-white">
+<nav class="bg-black text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            <a href="/" class="text-xl font-semibold hover:text-gray-300">Portfolio</a>
+            <a href="/" class="text-xl font-semibold hover:text-gray-300">
+                <img src="Logo.png" />
+            </a>
 
-            <div class="hidden md:flex items-center space-x-4">
-                <NavLink href="/" class="hover:text-gray-300" Match="NavLinkMatch.All">Home</NavLink>
-                <NavLink href="/projects" class="hover:text-gray-300">Projects</NavLink>
-                <NavLink href="/contact" class="hover:text-gray-300">Contact</NavLink>
-                <a href="https://learn.microsoft.com/aspnet/core/" target="_blank" class="hover:text-gray-300">About</a>
+            <div class="hidden md:flex items-center space-x-4 text-2xl">
+                <NavLink href="/About" class="hover:text-gray-300">about</NavLink>
+                <NavLink href="/Blogs" class="hover:text-gray-300">blog</NavLink>
+                <NavLink href="/Projects" class="hover:text-gray-300">projects</NavLink>
+                <NavLink href="/Resume" class="hover:tet-gray-300">resume</NavLink>
+                <NavLink href="/Contact" class="hover:text-gray-300">contact</NavLink>
             </div>
 
             <button class="md:hidden focus:outline-none" @onclick="ToggleMenu" aria-label="Toggle navigation">
@@ -22,10 +25,11 @@
     </div>
 
     <div class="@($"md:hidden border-t border-gray-700 px-4 pb-4 {(isMenuOpen ? "block" : "hidden")}")">
-        <NavLink href="/" class="block py-2 hover:text-gray-300" Match="NavLinkMatch.All">Home</NavLink>
-        <NavLink href="/projects" class="block py-2 hover:text-gray-300">Projects</NavLink>
-        <NavLink href="/contact" class="block py-2 hover:text-gray-300">Contact</NavLink>
-        <a href="https://learn.microsoft.com/aspnet/core/" target="_blank" class="block py-2 hover:text-gray-300">About</a>
+        <NavLink href="/About" class="block py-2 text-center hover:text-gray-300">about</NavLink>
+        <NavLink href="/Blogs" class="block py-2 text-center hover:text-gray-300">blog</NavLink>
+        <NavLink href="/Projects" class="block py-2 text-center hover:text-gray-300">projects</NavLink>
+        <NavLink href="/Resume" class="block py-2 text-center hover:tet-gray-300">resume</NavLink>
+        <NavLink href="/Contact" class="block py-2 text-center hover:text-gray-300">contact</NavLink>
     </div>
 </nav>
 

@@ -2,20 +2,29 @@
 
 <PageTitle>Home</PageTitle>
 
-<div class="max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold text-gray-900 mb-4">Hello, world!</h1>
-    <p class="text-lg text-gray-700">Welcome to your new app.</p>
+<div class="flex-1 aspect-video">
+    <img src="PortfolioRemakeCoverImage_Web.jpg" class="w-full h-full object-cover"/>
 </div>
 
-@if (_isLoading)
-{
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Loading blog count...</h1>
+<article class="flex-1 px-4 py-6">
+    <div class="flex-12 justify-items-center">
+        <h1 class="font-medium text-3xl">LATEST BLOGS</h1>
     </div>
-}
-else
-{
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Blog Count: @_blogCount</h1>
+    <div class="flex-12 justify-items-center">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Hello, world!</h1>
+        <p class="text-lg text-gray-700">Welcome to your new app.</p>
     </div>
-}
+
+    @if (_isLoading)
+    {
+        <div class="flex-12 max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Loading blog count...</h1>
+        </div>
+    }
+    else
+    {
+        <div class="flex-12 max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Blog Count: @_blogCount</h1>
+        </div>
+    }
+</article>
