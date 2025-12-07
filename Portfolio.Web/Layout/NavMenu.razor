@@ -1,39 +1,36 @@
-﻿<div class="bg-gray-900 px-3 py-4">
-    <div class="flex items-center justify-between">
-        <a class="text-xl font-bold" href="">Portfolio.Web</a>
-        <button title="Navigation menu" class="md:hidden text-white" @onclick="ToggleNavMenu">
-            <span class="text-2xl">☰</span>
-        </button>
-    </div>
-</div>
+﻿@using Microsoft.AspNetCore.Components.Routing
 
-<div class="@NavMenuCssClass overflow-y-auto">
-    <nav class="flex flex-col space-y-1 p-3">
-        <div class="nav-item">
-            <NavLink class="flex items-center px-3 py-2 rounded hover:bg-gray-700 transition-colors" href="" Match="NavLinkMatch.All">
-                <span class="mr-2" aria-hidden="true">🏠</span> Home
-            </NavLink>
+<nav class="bg-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="/" class="text-xl font-semibold hover:text-gray-300">Portfolio</a>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <NavLink href="/" class="hover:text-gray-300" Match="NavLinkMatch.All">Home</NavLink>
+                <NavLink href="/projects" class="hover:text-gray-300">Projects</NavLink>
+                <NavLink href="/contact" class="hover:text-gray-300">Contact</NavLink>
+                <a href="https://learn.microsoft.com/aspnet/core/" target="_blank" class="hover:text-gray-300">About</a>
+            </div>
+
+            <button class="md:hidden focus:outline-none" @onclick="ToggleMenu" aria-label="Toggle navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
-        <div class="nav-item">
-            <NavLink class="flex items-center px-3 py-2 rounded hover:bg-gray-700 transition-colors" href="counter">
-                <span class="mr-2" aria-hidden="true">➕</span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="flex items-center px-3 py-2 rounded hover:bg-gray-700 transition-colors" href="weather">
-                <span class="mr-2" aria-hidden="true">📋</span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
+    </div>
+
+    <div class="@($"md:hidden border-t border-gray-700 px-4 pb-4 {(isMenuOpen ? "block" : "hidden")}")">
+        <NavLink href="/" class="block py-2 hover:text-gray-300" Match="NavLinkMatch.All">Home</NavLink>
+        <NavLink href="/projects" class="block py-2 hover:text-gray-300">Projects</NavLink>
+        <NavLink href="/contact" class="block py-2 hover:text-gray-300">Contact</NavLink>
+        <a href="https://learn.microsoft.com/aspnet/core/" target="_blank" class="block py-2 hover:text-gray-300">About</a>
+    </div>
+</nav>
 
 @code {
-    private bool collapseNavMenu = true;
+    private bool isMenuOpen;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "hidden md:block" : "block";
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+    private void ToggleMenu() => isMenuOpen = !isMenuOpen;
 }
